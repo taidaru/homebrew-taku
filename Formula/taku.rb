@@ -5,34 +5,34 @@ class Taku < Formula
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/taidaru/taku/releases/download/v0.1.4/taku-aarch64-apple-darwin.tar.xz"
-      sha256 "b742125da1def4a40db61dde1ae4fab7a673f56d89267e88c633780bf9c690ab"
+      sha256 "5fa43e0ad81a8bb2d7462203b8f6cebaa06760f188f618a08da424b57aaf0353"
     end
     if Hardware::CPU.intel?
       url "https://github.com/taidaru/taku/releases/download/v0.1.4/taku-x86_64-apple-darwin.tar.xz"
-      sha256 "92b6f5366fa092f6e906ddcbc3046b6c3fe5c033a5d8e8e3fba3fa967b996172"
+      sha256 "3d3809b5b886b7b4ec6dc0175e0772dccddfedfde167e3cd0d41254c1e3fd1ac"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
       url "https://github.com/taidaru/taku/releases/download/v0.1.4/taku-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "6161b85282bb3f1ac32f3a10f2fbba272019af6eb4e0cbc02f78de48a5827e6c"
+      sha256 "9a21b47012f348bad408de53d502fc4402d6e928929e9b257a9e0dd52105f26a"
     end
     if Hardware::CPU.intel?
       url "https://github.com/taidaru/taku/releases/download/v0.1.4/taku-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "c06a628730da231411325e4721b5ddd1e464cd96c06f931b290a49b8558c834f"
+      sha256 "f2fab7a00b1bc442953aa11bfff24043f53e194feb9d1ae4a300ae7049ea1565"
     end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin": {},
-    "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin": {},
-    "x86_64-pc-windows-gnu": {},
-    "x86_64-unknown-linux-gnu": {},
+    "aarch64-apple-darwin":              {},
+    "aarch64-unknown-linux-gnu":         {},
+    "x86_64-apple-darwin":               {},
+    "x86_64-pc-windows-gnu":             {},
+    "x86_64-unknown-linux-gnu":          {},
     "x86_64-unknown-linux-musl-dynamic": {},
-    "x86_64-unknown-linux-musl-static": {}
-  }
+    "x86_64-unknown-linux-musl-static":  {},
+  }.freeze
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -50,18 +50,10 @@ class Taku < Formula
   end
 
   def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "taku"
-    end
-    if OS.mac? && Hardware::CPU.intel?
-      bin.install "taku"
-    end
-    if OS.linux? && Hardware::CPU.arm?
-      bin.install "taku"
-    end
-    if OS.linux? && Hardware::CPU.intel?
-      bin.install "taku"
-    end
+    bin.install "taku" if OS.mac? && Hardware::CPU.arm?
+    bin.install "taku" if OS.mac? && Hardware::CPU.intel?
+    bin.install "taku" if OS.linux? && Hardware::CPU.arm?
+    bin.install "taku" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
 
