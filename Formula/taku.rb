@@ -1,25 +1,25 @@
 class Taku < Formula
   desc "A task runner powered by Rust and scripted in Lua."
   homepage "https://taidaru.github.io/taku/"
-  version "0.1.4"
+  version "0.1.5"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/taidaru/taku/releases/download/v0.1.4/taku-aarch64-apple-darwin.tar.xz"
-      sha256 "5fa43e0ad81a8bb2d7462203b8f6cebaa06760f188f618a08da424b57aaf0353"
+      url "https://github.com/taidaru/taku/releases/download/v0.1.5/taku-aarch64-apple-darwin.tar.xz"
+      sha256 "b0c3f66d5a3448b8a4b172196673f27ea4c14529b0711d369df031467502ad77"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/taidaru/taku/releases/download/v0.1.4/taku-x86_64-apple-darwin.tar.xz"
-      sha256 "3d3809b5b886b7b4ec6dc0175e0772dccddfedfde167e3cd0d41254c1e3fd1ac"
+      url "https://github.com/taidaru/taku/releases/download/v0.1.5/taku-x86_64-apple-darwin.tar.xz"
+      sha256 "e835905bc071182527bd06e64358e493377b439aa4cbc71cb1e0c06e3ced2c75"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/taidaru/taku/releases/download/v0.1.4/taku-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "9a21b47012f348bad408de53d502fc4402d6e928929e9b257a9e0dd52105f26a"
+      url "https://github.com/taidaru/taku/releases/download/v0.1.5/taku-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "b2fe5211c03ab9c18853962c924687916c301fab1665a3e91ee6f98449327629"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/taidaru/taku/releases/download/v0.1.4/taku-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "f2fab7a00b1bc442953aa11bfff24043f53e194feb9d1ae4a300ae7049ea1565"
+      url "https://github.com/taidaru/taku/releases/download/v0.1.5/taku-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "99b2d1b5ba98a16fdffa33b8809d38fc7483077d6d28ac5403a5138a27ba33cb"
     end
   end
   license "MIT"
